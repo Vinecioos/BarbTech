@@ -6,9 +6,10 @@ import { App } from './app';
 import { TelaLoginProfissional } from './tela-login-profissional/tela-login-profissional';
 import { FormsModule } from '@angular/forms';
 import { TelaInicial } from './tela-inicial/tela-inicial';
+import { TelaLoginUsuario } from './tela-login-usuario/tela-login-usuario';
 
 @NgModule({
-  declarations: [App, TelaLoginProfissional, TelaInicial],
+  declarations: [App, TelaLoginProfissional, TelaInicial, TelaLoginUsuario],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

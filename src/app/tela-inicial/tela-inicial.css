@@ -123,3 +123,128 @@ footer {
 .footer-direitos p {
     color: #6B7280;
 }
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+    .slogan {
+        font-size: 24px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .text-slogan,
+    .text-form {
+        font-size: 18px;
+    }
+
+    .form-container {
+        gap: 20px;
+    }
+
+    .form-usuario,
+    .form-profissional {
+        width: 320px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .button-usuario,
+    .button-profissional {
+        width: 100%;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    header {
+        font-size: 14px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    section {
+        height: auto; /* 🔥 evita cortar conteúdo */
+        padding-bottom: 40px;
+    }
+
+    .slogan {
+        font-size: 20px;
+        padding: 1rem;
+    }
+
+    .text-slogan,
+    .text-form {
+        font-size: 16px;
+    }
+
+    /* 🔥 EMPILHA OS CARDS */
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .form-usuario,
+    .form-profissional {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .usuario,
+    .profissional {
+        margin: 20px;
+    }
+
+    .icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .button-usuario,
+    .button-profissional {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    footer {
+        height: auto;
+        text-align: center;
+    }
+
+    .footer-direitos {
+        padding: 15px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+
+    .slogan {
+        font-size: 18px;
+    }
+
+    .text-slogan,
+    .text-form {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .button-usuario,
+    .button-profissional {
+        height: 45px;
+        font-size: 14px;
+    }
+}
