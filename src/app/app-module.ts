@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { TelaLoginProfissional } from './tela-login-profissional/tela-login-profissional';
 import { FormsModule } from '@angular/forms';
+import { TelaInicial } from './tela-inicial/tela-inicial';
 
 @NgModule({
-  declarations: [App, TelaLoginProfissional],
+  declarations: [App, TelaLoginProfissional, TelaInicial],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
