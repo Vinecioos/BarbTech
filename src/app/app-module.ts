@@ -8,9 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { TelaInicial } from './tela-inicial/tela-inicial';
 import { TelaLoginUsuario } from './tela-login-usuario/tela-login-usuario';
 import { CadastroProfissional } from './cadastro-profissional/cadastro-profissional';
+import { CadastroCliente } from './cadastro-cliente/cadastro-cliente';
 
 @NgModule({
-  declarations: [App, TelaLoginProfissional, TelaInicial, TelaLoginUsuario, CadastroProfissional],
+  declarations: [
+    App,
+    TelaLoginProfissional,
+    TelaInicial,
+    TelaLoginUsuario,
+    CadastroProfissional,
+    CadastroCliente,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
