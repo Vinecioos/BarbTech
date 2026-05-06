@@ -1,6 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { TelaLoginProfissional } from './tela-login-profissional/tela-login-profissional';
@@ -12,6 +11,7 @@ import { CadastroCliente } from './cadastro-cliente/cadastro-cliente';
 import { Header } from './header/header';
 import { HomePage } from './home-page/home-page';
 import { Rodape } from './rodape/rodape';
+import { TelaProfissionalPainel } from './tela-profissional-painel/tela-profissional-painel';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { Rodape } from './rodape/rodape';
     Header,
     HomePage,
     Rodape,
+    TelaProfissionalPainel
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
