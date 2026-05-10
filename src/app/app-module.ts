@@ -12,6 +12,9 @@ import { Header } from './header/header';
 import { HomePage } from './home-page/home-page';
 import { Rodape } from './rodape/rodape';
 import { TelaProfissionalPainel } from './tela-profissional-painel/tela-profissional-painel';
+import { TelaAgendamento } from './tela-agendamento/tela-agendamento';
+import { ServicoComponent } from './servico-component/servico-component';
+import { AgendaComponent } from './agenda-component/agenda-component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { TelaProfissionalPainel } from './tela-profissional-painel/tela-profissi
     Header,
     HomePage,
     Rodape,
-    TelaProfissionalPainel
+    TelaProfissionalPainel,
+    TelaAgendamento,
+    ServicoComponent,
+    AgendaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
