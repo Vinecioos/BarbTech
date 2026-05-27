@@ -13,7 +13,7 @@
   </div>
 
   <div class="lista">
-    <div class="card" *ngFor="let servico of servicosFiltrados">
+    <div class="card" *ngFor="let servico of servicosFiltrados" routerLink="/lista-barbeiro/{{servico.nome}}">
       <div class="card__icone">✂</div>
       <div class="card__info">
         <h3 class="card__nome">{{ servico.nome }}</h3>

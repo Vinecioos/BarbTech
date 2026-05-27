@@ -1,0 +1,243 @@
+.home {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* ── HEADER ── */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 52px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.home-header__logo {
+  color: #d4a017;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.home-header__perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1px solid #d4a017;
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: #d4a017;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.home-header__perfil:hover {
+  background-color: #2a2a2a;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* ── CONTENT ── */
+.home-content {
+  padding: 40px 32px;
+}
+
+.home-titulo {
+  color: #d4a017;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.home-subtitulo {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 32px;
+}
+
+/* ── AGENDA HORIZONTAL ── */
+.agenda-horizontal {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.dia-col {
+  min-width: 160px;
+  border: 1px solid #d4a017;
+  border-radius: 10px;
+  background-color: #222;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dia-col__header {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-bottom: 1px solid #2a2a2a;
+  gap: 2px;
+}
+
+.dia-col__nome {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dia-col__horario {
+  color: #d4a017;
+  font-size: 11px;
+}
+
+.dia-col__slots {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+
+.slot {
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.slot.ocupado {
+  border-color: #d4a017;
+  background-color: #2a1f00;
+}
+
+.slot__hora {
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.slot.ocupado .slot__hora {
+  color: #d4a017;
+}
+
+.slot__servico {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.slot__cliente {
+  color: #888;
+  font-size: 11px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: #222;
+  border: 1px solid #d4a017;
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__titulo {
+  color: #d4a017;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal__info p {
+  color: #aaa;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.modal__info strong {
+  color: #fff;
+}
+
+.modal__label {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.modal__select {
+  background-color: #1a1a1a;
+  border: 1px solid #d4a017;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.modal__botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-excluir {
+  background: none;
+  border: 1px solid #e53935;
+  color: #e53935;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: auto;
+}
+
+.btn-cancelar {
+  background: none;
+  border: 1px solid #555;
+  color: #aaa;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-salvar {
+  background-color: #d4a017;
+  border: none;
+  color: #1a1a1a;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}

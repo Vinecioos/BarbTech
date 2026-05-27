@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { BarbeiroService } from '../services/barbeiro.service';
 
 @Component({
   selector: 'app-tela-agendamento',
@@ -7,22 +9,23 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './tela-agendamento.html',
   styleUrl: './tela-agendamento.css',
 })
-export class TelaAgendamento {
+export class TelaAgendamento implements OnInit {
   fotoBanner: any;
   fotoPerfil: any;
   abaSelecionada: string = 'servicos';
   servicoSelecionado: any = null;
+  barbeiro: any = null;
 
-  selecionarAba(aba: string) {
-    this.abaSelecionada = aba;
-  }
+  constructor(
+    private sanitizer: DomSanitizer,
+    private route: ActivatedRoute,
+    private barbeiroService: BarbeiroService
+  ) {}
 
-  onServicoEscolhido(servico: any) {
-    this.servicoSelecionado = servico;
-    this.abaSelecionada = 'agenda'; // já muda pra aba de agenda automaticamente
-  }
+  ngOnInit() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.barbeiro = this.barbeiroService.getBarbeiros().find((b: any) => b.id === id);
 
-  constructor(private sanitizer: DomSanitizer) {
     const perfil = localStorage.getItem('fotoPerfil');
     const banner = localStorage.getItem('fotoBanner');
 
@@ -32,5 +35,14 @@ export class TelaAgendamento {
     this.fotoBanner = this.sanitizer.bypassSecurityTrustStyle(
       banner ? `url(${banner})` : "url('/capa-padrao.jpg')"
     );
+  }
+
+  selecionarAba(aba: string) {
+    this.abaSelecionada = aba;
+  }
+
+  onServicoEscolhido(servico: any) {
+    this.servicoSelecionado = servico;
+    this.abaSelecionada = 'agenda';
   }
 }

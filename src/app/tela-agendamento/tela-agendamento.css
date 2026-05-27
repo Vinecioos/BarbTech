@@ -193,3 +193,19 @@
     padding: 20px 0;
   }
 }
+.barbeiro-nome {
+  padding: 16px 32px;
+}
+
+.barbeiro-nome h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.barbeiro-nome p {
+  color: #d4a017;
+  font-size: 14px;
+  margin: 0;
+}

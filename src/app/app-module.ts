@@ -19,6 +19,7 @@ import { ServicoComponent } from './servico-component/servico-component';
 import { AgendaComponent } from './agenda-component/agenda-component';
 import { ListaBarbeiro } from './lista-barbeiro/lista-barbeiro';
 import { ListaServico } from './lista-servico/lista-servico';
+import { HomeProfissional } from './home-profissional/home-profissional';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ListaServico } from './lista-servico/lista-servico';
     AgendaComponent,
     ListaBarbeiro,
     ListaServico,
+    HomeProfissional,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [

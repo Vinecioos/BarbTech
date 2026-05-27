@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProfissionalService } from '../services/profissional';
+import { AgendamentoService } from '../services/agendamento.service';
 
 @Component({
   selector: 'app-agenda-component',
@@ -17,7 +18,12 @@ export class AgendaComponent implements OnInit {
   slots: string[] = [];
   horarioSelecionado: string | null = null;
 
-  constructor(private profissionalService: ProfissionalService) {}
+  nomeCliente: string = '';
+
+  constructor(
+    private profissionalService: ProfissionalService,
+    private agendamentoService: AgendamentoService
+  ) {}
 
   ngOnInit() {
     this.agenda = this.profissionalService.getAgenda();
@@ -34,13 +40,26 @@ export class AgendaComponent implements OnInit {
   selecionarHorario(slot: string) {
     this.horarioSelecionado = slot;
   }
+
   confirmar() {
-  this.confirmado = true;
-}
-novoAgendamento() {
-  this.confirmado = false;
-  this.horarioSelecionado = null;
-  this.diaSelecionado = null;
-  this.slots = [];
-}
+    if (!this.diaSelecionado || !this.horarioSelecionado) return;
+
+    this.agendamentoService.salvarAgendamento({
+      dia: this.diaSelecionado.nome,
+      horario: this.horarioSelecionado,
+      servico: this.servico?.nome ?? 'Não informado',
+      cliente: this.nomeCliente || 'Cliente',
+      duracaoMin: this.servico?.tempo ?? 30,
+    });
+
+    this.confirmado = true;
+  }
+
+  novoAgendamento() {
+    this.confirmado = false;
+    this.horarioSelecionado = null;
+    this.diaSelecionado = null;
+    this.slots = [];
+    this.nomeCliente = '';
+  }
 }

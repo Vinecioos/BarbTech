@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BarbeiroService } from '../services/barbeiro.service';
 
 @Component({
@@ -9,10 +10,19 @@ import { BarbeiroService } from '../services/barbeiro.service';
 })
 export class ListaBarbeiro implements OnInit {
   barbeiros: any[] = [];
+  servicoFiltro: string = '';
 
-  constructor(private barbeiroService: BarbeiroService) {}
+  constructor(
+    private barbeiroService: BarbeiroService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.barbeiros = this.barbeiroService.getBarbeiros();
+    this.servicoFiltro = this.route.snapshot.paramMap.get('servico') || '';
+    const todos = this.barbeiroService.getBarbeiros();
+
+    this.barbeiros = this.servicoFiltro
+      ? todos.filter((b: any) => b.servicos?.includes(this.servicoFiltro))
+      : todos;
   }
 }

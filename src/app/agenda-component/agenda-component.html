@@ -37,6 +37,15 @@
     </p>
   </div>
 
+  <div class="campo-nome" *ngIf="horarioSelecionado && !confirmado">
+  <input
+    type="text"
+    [(ngModel)]="nomeCliente"
+    placeholder="Seu nome completo"
+    class="input-nome"
+  />
+</div>
+
   <!-- Botão confirmar -->
   <button 
     class="btn-confirmar" 

@@ -1,0 +1,64 @@
+<div class="home">
+
+  <header class="home-header">
+    <h1 class="home-header__logo">BarbTech</h1>
+    <button class="home-header__perfil" routerLink="/configuracao-profissional" routerLinkActive="active">
+      <div class="avatar" [style.background-image]="fotoPerfil ? 'url(' + fotoPerfil + ')' : ''">
+        <span *ngIf="!fotoPerfil">👤</span>
+      </div>
+      <span>Meu Perfil</span>
+    </button>
+  </header>
+
+  <main class="home-content">
+    <h2 class="home-titulo">Minha Agenda</h2>
+    <p class="home-subtitulo">Horários disponíveis por dia</p>
+
+    <div class="agenda-horizontal">
+      <div class="dia-col" *ngFor="let dia of diasAtivos">
+        <div class="dia-col__header">
+          <span class="dia-col__nome">{{ dia.nome }}</span>
+          <span class="dia-col__horario">{{ dia.inicio }} - {{ dia.fim }}</span>
+        </div>
+        <div class="dia-col__slots">
+          <div
+            class="slot"
+            *ngFor="let slot of gerarSlots(dia)"
+            [class.ocupado]="getAgendamentoDoSlot(dia.nome, slot)"
+            (click)="getAgendamentoDoSlot(dia.nome, slot) && abrirModal(getAgendamentoDoSlot(dia.nome, slot))">
+            <span class="slot__hora">{{ slot }}</span>
+            <ng-container *ngIf="getAgendamentoDoSlot(dia.nome, slot) as ag">xz
+              <span class="slot__servico">{{ ag.servico }}</span>
+              <span class="slot__cliente">{{ ag.cliente }}</span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal editar -->
+  <div class="modal-overlay" *ngIf="modalAberto" (click)="fecharModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <h3 class="modal__titulo">Editar Agendamento</h3>
+
+      <div class="modal__info">
+        <p><strong>Cliente:</strong> {{ agendamentoSelecionado?.cliente }}</p>
+        <p><strong>Serviço:</strong> {{ agendamentoSelecionado?.servico }}</p>
+        <p><strong>Dia:</strong> {{ agendamentoSelecionado?.dia }}</p>
+      </div>
+
+      <label class="modal__label">Novo horário</label>
+      <select class="modal__select" [(ngModel)]="novoHorario">
+        <option *ngFor="let slot of slotsDisponiveis" [value]="slot">{{ slot }}</option>
+      </select>
+
+      <div class="modal__botoes">
+        <button class="btn-excluir" (click)="excluir()">Excluir</button>
+        <button class="btn-cancelar" (click)="fecharModal()">Cancelar</button>
+        <button class="btn-salvar" (click)="salvarEdicao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
